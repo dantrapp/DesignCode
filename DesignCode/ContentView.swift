@@ -102,9 +102,14 @@ struct ContentView: View {
                 .onTapGesture {
                     //                    self.show.toggle()
                     self.showCard.toggle() //show full card view, gonna need a view to show though!
+                    
             }
+    
+                
                 
             .gesture(
+                
+            
                 DragGesture().onChanged{ value in
                     self.viewState = value.translation //get coordinates
                     self.show = true //blur on drag
@@ -254,7 +259,7 @@ struct BottomCardView: View {
             
             
             //add the text and modify it
-            Text("This is card is only visible when you tap on the main card (black.) When you tap the black card it widens and the 2 cards in back reset tilt and raise up (as well as shrink in scale) and the background blurs. You can also drag the card. ")
+            Text("This is card is only visible when you tap on the main card (black.) When you tap the black card it widens and the 2 cards in back reset tilt and raise up (as well as shrink in scale) and the background blurs. You can also drag the card. If you drag the card up it stops at -323. If you pull the card down past -263 it will reset to default visible state. If you drag the card above 50 you will swipe the card away completely.")
                 .multilineTextAlignment(.center)
                 .font(.subheadline)
                 .lineSpacing(5)
