@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		71C65E84244663CA00567458 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C65E83244663CA00567458 /* MenuView.swift */; };
+		71C65EA92448EBE100567458 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C65EA82448EBE000567458 /* Home.swift */; };
 		71DCD4702443ED510076C46F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DCD46F2443ED510076C46F /* AppDelegate.swift */; };
 		71DCD4722443ED510076C46F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DCD4712443ED510076C46F /* SceneDelegate.swift */; };
 		71DCD4752443ED510076C46F /* DesignCode.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71DCD4732443ED510076C46F /* DesignCode.xcdatamodeld */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		71C65E83244663CA00567458 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		71C65EA82448EBE000567458 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		71DCD46C2443ED510076C46F /* DesignCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71DCD46F2443ED510076C46F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71DCD4712443ED510076C46F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				71DCD46F2443ED510076C46F /* AppDelegate.swift */,
 				71DCD4712443ED510076C46F /* SceneDelegate.swift */,
 				71DCD4762443ED510076C46F /* ContentView.swift */,
+				71C65EA82448EBE000567458 /* Home.swift */,
 				71C65E83244663CA00567458 /* MenuView.swift */,
 				71DCD4782443ED550076C46F /* Assets.xcassets */,
 				71DCD47D2443ED550076C46F /* LaunchScreen.storyboard */,
@@ -152,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71C65EA92448EBE100567458 /* Home.swift in Sources */,
 				71C65E84244663CA00567458 /* MenuView.swift in Sources */,
 				71DCD4752443ED510076C46F /* DesignCode.xcdatamodeld in Sources */,
 				71DCD4702443ED510076C46F /* AppDelegate.swift in Sources */,
