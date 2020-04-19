@@ -12,6 +12,8 @@ struct HomeView: View {
     
     @Binding var showProfile : Bool
     
+    @State var showUpdate = false
+    
     var body: some View {
         
         VStack {
@@ -22,6 +24,27 @@ struct HomeView: View {
                 Spacer()
                 
                 AvatarView(showProfile: $showProfile)
+                
+                Button(action: {
+                    self.showUpdate.toggle()
+                    
+                }) {
+                    Image(systemName: "bell")
+                        .renderingMode(.original)
+                        .font(.system(size: 16, weight: .medium))
+                        .frame(width: 36, height: 36)
+                        .background(Color.white)
+                        //add clipShape before shadow
+                        .clipShape(Circle())
+                        //add double drop shadow
+                        .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                        .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                        
+                }
+                .sheet(isPresented: $showUpdate) {
+                   //show the view we want in a modal
+                    ContentView()
+                }
             }
             .padding(.horizontal)
             .padding(.leading, 14) //set text to scrollview width/start.
@@ -30,9 +53,20 @@ struct HomeView: View {
             //SCROLL VIEW
             
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 30) {
+                HStack(spacing: 20) {
                     ForEach(sectionData) { item in
-                        SectionView(section: item)
+                        GeometryReader { geometry in
+                            SectionView(section: item)
+                            .rotation3DEffect(Angle(degrees:
+                                Double(geometry.frame(in: .global).minX - 30) / -20
+                                
+                                /*
+                                 take away default offset with -30, then divide that by -20 to slow rotation down
+                                 */
+                                
+                            ), axis: (x: 0.0, y: 10.0, z: 0.0))
+                        }
+                        .frame(width: 275, height: 275)
                     }
                 }
                 .padding(30)
