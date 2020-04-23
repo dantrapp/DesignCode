@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7112262024512E8700C52990 /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7112261F24512E8700C52990 /* RingView.swift */; };
 		712AC6B7244A635F0007AB41 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712AC6B6244A635F0007AB41 /* HomeView.swift */; };
 		718A93CD244BDD140044B845 /* UpdateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718A93CC244BDD140044B845 /* UpdateList.swift */; };
 		718A93CF244BF7760044B845 /* UpdateDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718A93CE244BF7760044B845 /* UpdateDetail.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7112261F24512E8700C52990 /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		712AC6B6244A635F0007AB41 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		718A93CC244BDD140044B845 /* UpdateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateList.swift; sourceTree = "<group>"; };
 		718A93CE244BF7760044B845 /* UpdateDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetail.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				718A93CC244BDD140044B845 /* UpdateList.swift */,
 				718A93CE244BF7760044B845 /* UpdateDetail.swift */,
 				71DC81E1244FD1DA00883D06 /* TabBar.swift */,
+				7112261F24512E8700C52990 /* RingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7112262024512E8700C52990 /* RingView.swift in Sources */,
 				71C65EA92448EBE100567458 /* Home.swift in Sources */,
 				712AC6B7244A635F0007AB41 /* HomeView.swift in Sources */,
 				718A93CF244BF7760044B845 /* UpdateDetail.swift in Sources */,
