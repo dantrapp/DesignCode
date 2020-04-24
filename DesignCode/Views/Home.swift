@@ -14,6 +14,7 @@ struct Home: View {
     @State var viewState = CGSize.zero //State drag values
     
     var body: some View {
+        
         ZStack {
             //set root background color (this is the base color that can be seen when adding transparency to other stacks.
             Color(#colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1))

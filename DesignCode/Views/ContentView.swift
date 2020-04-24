@@ -104,12 +104,12 @@ struct ContentView: View {
                     self.showCard.toggle() //show full card view, gonna need a view to show though!
                     
             }
-    
+                
                 
                 
             .gesture(
                 
-            
+                
                 DragGesture().onChanged{ value in
                     self.viewState = value.translation //get coordinates
                     self.show = true //blur on drag
@@ -128,7 +128,8 @@ struct ContentView: View {
                 .offset(y:
                     -360)
             
-            BottomCardView()
+            //ring view binding "true" IF showCard is tapped
+            BottomCardView(showProgress: $showCard)
                 .offset(x: 0, y: showCard ? 360 : 1000) //hide the card with 1,000px.
                 .offset(y: bottomState.height) //dragging offset, y-only for height
                 .blur(radius: show ? 20 : 0)
@@ -248,6 +249,9 @@ struct TitleView: View {
 }
 
 struct BottomCardView: View {
+    
+    @Binding var showProgress : Bool
+    
     var body: some View {
         VStack(spacing: 20) {
             //add the pull tab
@@ -258,11 +262,38 @@ struct BottomCardView: View {
             
             
             
+            
             //add the text and modify it
             Text("This is card is only visible when you tap on the main card (black.) When you tap the black card it widens and the 2 cards in back reset tilt and raise up (as well as shrink in scale) and the background blurs. You can also drag the card. If you drag the card up it stops at -323. If you pull the card down past -263 it will reset to default visible state. If you drag the card above 50 you will swipe the card away completely.")
                 .multilineTextAlignment(.center)
                 .font(.subheadline)
                 .lineSpacing(5)
+            
+            
+            //Create Ring Component
+            HStack(spacing: 32) {
+                RingView(color1: #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), color2: #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1), width: 88, height: 88, percent: 88, showProgress: $showProgress)
+                    .animation(Animation.easeInOut(duration: 1.2))
+                
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("AUDIOCHROMO")
+                        .fontWeight(.bold)
+                    Text("This is the description box which you can fill with a few lines of text.")
+                        .lineSpacing(4)
+                        .font(.caption)
+                }
+                .frame(width: 200)
+                .frame(height: 100)
+                .background(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))                .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                
+                
+                
+                
+                
+            }
             
             Spacer()
             

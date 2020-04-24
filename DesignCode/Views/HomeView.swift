@@ -14,13 +14,16 @@ struct HomeView: View {
     
     @State var showUpdate = false
     
+    
     var body: some View {
         
         VStack {
             
             HStack {
                 Text("Watching")
-                    .font(.system(size: 28, weight: .bold))
+//                    .font(.system(size: 28, weight: .bold))
+                    .modifier(CustomFontModifier(size: 40))
+                
                 Spacer()
                 
                 AvatarView(showProfile: $showProfile)
@@ -50,8 +53,42 @@ struct HomeView: View {
             .padding(.leading, 14) //set text to scrollview width/start.
             .padding(.top, 30)
             
-            //SCROLL VIEW
             
+            //SCROLLABLE RING VIEW
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 12) {
+                    RingView(color1: #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), color2: #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1), width: 44, height: 44, percent: 28, showProgress:.constant(true))
+                                   //.animation(Animation.easeInOut(duration: 1.2))
+                               
+                               
+                    VStack(alignment: .leading, spacing: 4.0) {
+                                Text("Lesson 1").bold().modifier(FontModifier(style: .subheadline))
+                                      
+                                   Text("Total Progress Today").modifier(FontModifier(style: .caption))
+                                       .lineSpacing(2)
+                                      
+                    }
+                    
+                    //SECOND CARD
+                    
+                    
+                }
+                           .padding(8)
+//                .frame(width: 250)
+//                .frame(height: 60)
+                .background(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
+                    .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                    
+                .modifier(ShadowModifier())
+                
+                
+                
+                
+            }
+        
+            //SCROLL VIEW
+ 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 20) {
                     ForEach(sectionData) { item in
@@ -78,11 +115,6 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView(showProfile: .constant(false))
-    }
-}
 
 struct SectionView: View {
     
@@ -161,3 +193,8 @@ let sectionData = [
 
 //to use color literal you must create the color literal outside of the array and paste in (Xcode bug)
 
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView(showProfile: .constant(false))
+    }
+}

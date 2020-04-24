@@ -14,11 +14,10 @@ struct RingView: View {
     var color2 = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
     var width : CGFloat = 300
     var height : CGFloat = 300
-    var percent : CGFloat = 18
+    var percent : CGFloat = 88
     
-   
-    
-
+    //bind to use outside this view
+    @Binding var showProgress : Bool
     
     var body: some View {
         
@@ -36,7 +35,7 @@ struct RingView: View {
  
             
             Circle()
-                .trim(from: progress, to: 1.0)
+                .trim(from: showProgress ? progress: 1, to: 1.0)
                 .stroke(
                      LinearGradient(gradient: Gradient(colors: [Color(color1), Color(color2)]), startPoint: .topTrailing, endPoint: .bottomLeading),
                     style: StrokeStyle(lineWidth: 5 * multiplier, lineCap: .round, lineJoin: .round, miterLimit: .infinity, dash: [20, 0], dashPhase: 0)
@@ -47,16 +46,25 @@ struct RingView: View {
                 .frame(width: width, height: height) //converted to CGFloat
                 .shadow(color: Color(color2).opacity(0.1), radius: 3 * multiplier, x: 0, y: 3 * multiplier)
             
+            //Gesture animation modifier for circle, comment this out or delete from parent before using it in child views or it will override!
+            
+//                .animation(.easeIn)
+            
             
             Text("\(Int(percent))%") //turn CGFloat into Int
                     .font(.system(size: 14 * multiplier))
                     .fontWeight(.bold)
+            
+            //ontap Gesture for progress state
+                .onTapGesture {
+                    self.showProgress.toggle()
+            }
         }
     }
 }
 
 struct RingView_Previews: PreviewProvider {
     static var previews: some View {
-        RingView()
+        RingView(showProgress: (.constant(true)))
     }
 }
