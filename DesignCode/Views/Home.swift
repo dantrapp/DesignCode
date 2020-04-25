@@ -11,6 +11,7 @@ import SwiftUI
 struct Home: View {
     
     @State var showProfile = false
+    @State var showContent = false
     @State var viewState = CGSize.zero //State drag values
     
     var body: some View {
@@ -20,9 +21,13 @@ struct Home: View {
             Color(#colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1))
                 .edgesIgnoringSafeArea(.all)
             
-            HomeView(showProfile: $showProfile)
+            HomeView(showProfile: $showProfile, showContent: $showContent)
                 .padding(.top, 44)
-                .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
+//                .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
+                
+                //Set Gradient Background
+                 .background(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)), Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))]), startPoint: .top, endPoint: .bottom))
+                
                 .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
                 .shadow(color: Color.black, radius: 100, x: 0, y: 20) //orignal drop shadow y:20, I like 100 for radius.
                 
@@ -78,7 +83,34 @@ struct Home: View {
     
             )
             
+            if showContent {
+                Color.white.edgesIgnoringSafeArea(.all)
+                ContentView()
+                
+                //CLOSE BUTTON (X)
+                VStack {
+                    HStack {
+                        Spacer()
+                        
+                        Image(systemName: "xmark")
+                            .frame(width: 36, height: 36)
+                            .foregroundColor(Color.white)
+                            .background(Color.black)
+                            .clipShape(Circle())
+                    }
+                    Spacer()
+                    
+                }
+                .offset(x:-15, y: 15)
+                //with if statements (conditionals) traditional animation modifiers don't work alone, so we need to use the transition modifier as well.
+                    .transition(.move(edge: .top))
+                    .animation(.spring(response: 0.6, dampingFraction: 0.8, blendDuration: 0))
+                .onTapGesture {
+                    self.showContent = false
+                }
+            }
         }
+        
     
     }
 }
