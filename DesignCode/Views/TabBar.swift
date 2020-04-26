@@ -29,9 +29,9 @@ struct TabBar: View {
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TabBar().previewDevice("iPhone SE")
-             TabBar().previewDevice("iPhone 8")
-            TabBar().previewDevice("iPad Pro (12.9-inch)")
+            TabBar().previewDevice("iPhone 11 Pro")
+//             TabBar().previewDevice("iPhone 8")
+//            TabBar().previewDevice("iPad Pro (12.9-inch)")
         }
     }
 }
